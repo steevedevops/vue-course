@@ -12,7 +12,7 @@
   </head>
     <style>
         .myContainer{
-            text-align: center; 
+            text-align: center;
             margin-top: 15px;
             padding: 15px;
             border: solid 1px black;
@@ -20,16 +20,16 @@
         }
     </style>
   <body>
-      <div id="app" class="container myContainer">          
-          <h2>{{subtitle}}</h2>       
+      <div id="app" class="container myContainer">
+          <h2>{{subtitle}}</h2>
           <div class="row">
               <div class="col-md-12">
-                <input type="text" v-model='inputdata'>    
+                <input type="text" v-model='inputdata'>
               </div>
               <div class="col-md-12">
                 <p v-text="inputdata"></p>
               </div>
-          </div>            
+          </div>
             <a href="#" v-on:click="mudarValor" class="btn btn-primary">Click me !</a>
       </div>
 
@@ -39,7 +39,7 @@
         var app = new Vue ({
             el : "#app",
             data:{
-                subtitle: "Two way data binding",                
+                subtitle: "Two way data binding",
                 inputdata : ''
             },
             methods:{

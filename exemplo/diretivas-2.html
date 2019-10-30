@@ -11,7 +11,7 @@
   </head>
     <style>
         .myContainer{
-            text-align: center; 
+            text-align: center;
             margin-top: 15px;
             padding: 15px;
             border: solid 1px black;
@@ -19,25 +19,20 @@
         }
     </style>
   <body>
-      <div id="app" class="container myContainer">          
-            <h2>{{title}}</h2>                      
+      <div id="app" class="container myContainer">
+            <h2>{{title}}</h2>
             <!-- <img :src="srcImg" alt=""> do jeito mais simples -->
             <img v-bind:src="srcImg" v-bind:title="titleImage">
 
             <!-- diretiva links -->
             <a v-bind:href="link" target="_blank">Ir pro site do vueJS</a>
-            
+
             <br>
             <!-- Valores direto na etiqueta -->
             <!-- Se coloca un texto qualquer ten que ser dentro de aspas simples -->
             <p v-text="'Steeve funcionando'"></p>
             <p v-text="texto"></p>
             <p>{{texto}}</p>
-
-
-            
-            
-
       </div>
 
     <!-- Optional JavaScript -->
@@ -51,15 +46,15 @@
         var app = new Vue ({
             el : "#app",
             // Data soamente e  utilizado para almazenar dados iniciativa do programa
-            data:{                
+            data:{
                 title: "Bienvenido al oficina de VueJS!",
                 srcImg : "vuejs-one.png",
                 titleImage : "Vue Imagem",
                 link : "https://vuejs.org",
                 texto  : "Este es una oficina de vueJS"
             },
-            
-            
+
+
         })
     </script>
   </body>
