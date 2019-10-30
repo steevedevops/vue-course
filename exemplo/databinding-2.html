@@ -1,0 +1,57 @@
+<!-- Duas maneiras de realizar as ações -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Instrodução a vuejs</title>
+  </head>
+    <style>
+        .myContainer{
+            text-align: center; 
+            margin-top: 15px;
+            padding: 15px;
+            border: solid 1px black;
+            border-radius: 10px;
+        }
+    </style>
+  <body>
+      <div id="app" class="container myContainer">          
+          <h2>{{subtitle}}</h2>       
+
+          <!-- <form v-on:submit.prevent="mudarValor($event)"> Pasar ese parametros es opcional para fazer o eventos acontecer--> 
+          <form v-on:submit.prevent="mudarValor">
+            <div class="row">
+                <div class="col-md-12">
+                    <input type="text" v-model='inputdata'>    
+                </div>               
+            </div>                        
+            <button type="submit" class="btn btn-primary">Click me !</button>
+          </form>
+      </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // Criando uma instancia de vueJS
+        var app = new Vue ({
+            el : "#app",
+            data:{
+                subtitle: "Two way data binding dois",                
+                inputdata : ''
+            },
+            methods:{                
+                mudarValor(event){
+                    // event.preventDefault();
+                    this.inputdata = 'valor pasado por parametro';
+                    console.log(event);
+                    
+                }
+            }
+        })
+    </script>
+  </body>
+</html>

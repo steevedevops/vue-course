@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">    
+    <title>Hello, world!</title>
+</head>
+
+<body>
+
+    <style>
+        body{
+            background-color: #2c4356;
+            text-align: center;
+        }
+    </style>
+    <div id="app">
+
+    <div class="container pt-5">
+        <h1 style="color: white;" v-text="title"></h1>
+        <table class="table table-bordered">            
+            <tbody>
+                <tr>
+                    <td colspan="4">
+                        <div class="input-group">
+                            <input type="text" v-model='screendata' class="form-control">
+                        </div>
+                    </td>
+                </tr>
+                <td colspan="4">
+                    <button type="button" @click="screendata = ''" class="btn btn-danger btn-lg btn-block">limpar</button>
+                </td>
+                <tr>
+                    <td><button type="button" @click="addnumber(7)" class="btn btn-outline-success btn-lg btn-block">7</button></td>
+                    <td><button type="button" @click="addnumber(8)" class="btn btn-outline-success btn-lg btn-block">8</button></td>
+                    <td><button type="button" @click="addnumber(9)" class="btn btn-outline-success btn-lg btn-block">9</button></td>
+                    <td><button type="button" @click="addnumber('/')" class="btn btn-primary btn-lg btn-block">/</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" @click="addnumber(4)" class="btn btn-outline-success btn-lg btn-block">4</button></td>
+                    <td><button type="button" @click="addnumber(5)" class="btn btn-outline-success btn-lg btn-block">5</button></td>
+                    <td><button type="button" @click="addnumber(6)" class="btn btn-outline-success btn-lg btn-block">6</button></td>
+                    <td><button type="button" @click="addnumber('x')" class="btn btn-primary btn-lg btn-block">x</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" @click="addnumber(1)" class="btn btn-outline-success btn-lg btn-block">1</button></td>
+                    <td><button type="button" @click="addnumber(2)" class="btn btn-outline-success btn-lg btn-block">2</button></td>
+                    <td><button type="button" @click="addnumber(3)" class="btn btn-outline-success btn-lg btn-block">3</button></td>
+                    <td><button type="button" @click="addnumber('+')" class="btn btn-primary btn-lg btn-block">+</button></td>
+                </tr>
+                <tr>
+                    <td><button type="button" @click="addnumber(0)" class="btn btn-outline-success btn-lg btn-block">0</button></td>
+                    <td><button type="button" @click="addnumber('.')" class="btn btn-outline-success btn-lg btn-block">.</button></td>
+                    <td><button type="button" class="btn btn-success btn-lg btn-block">=</button></td>
+                    <td><button type="button" @click="addnumber('-')" class="btn btn-primary btn-lg btn-block">-</button></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+
+    <script>
+        var vue = new Vue({
+            el : "#app",
+            data(){
+                return{
+                    title: 'Calculadora hecho em vuejs',
+                    screendata: ''
+                }
+            },            
+            methods: {
+                addnumber(params){                    
+                    this.screendata = this.screendata+params;
+                }                
+            }
+        })
+    </script>
+</body>
+</html>
