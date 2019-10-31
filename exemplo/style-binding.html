@@ -1,0 +1,100 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Instrodução a vuejs</title>
+  </head>
+    <style>
+        .myContainer{
+            text-align: center; 
+            margin-top: 15px;
+            padding: 15px;
+            border: solid 1px black;
+            border-radius: 10px;
+        }
+        .card-me{
+          width: 400px;
+          height: 100px;          
+          margin-top: 5px;
+        }
+        .dataColorClass{
+            color: blue;
+            background-color: red;
+        }
+        .dataColorClass2{
+            color: red;
+            background-color: blue;
+        }
+    </style>
+  <body>      
+      <div id="app" class="container myContainer">          
+          <div class="row">                            
+              <div class="col-md-12">
+                  <!-- Color simples por tag style -->
+                  <div :style="{ 'background-color': myColor}">
+                  <!-- <div :style="{ backgroundColor: myColor}"> -->
+                    Lorem ipsum dolor sit amet.
+                  </div>
+
+                  <!-- color more complex white object color -->
+                  <div :style="dataColor">
+                        Lorem ipsum dolor sit amet.
+                   </div>
+
+                   <!-- Mais de um stylo nom mesmo objeto -->
+                   <div :style="[dataColor1, dataColor2]">
+                        Lorem ipsum dolor sit amet.
+                   </div>
+
+
+                   <!-- Usando v-bind con clase -->
+                   <div :class="{ dataColorClass: ativaClase, dataColorClass2: !ativaClase}">                        
+                        <p>Lorem ipsum dolor sit.</p>
+                   </div>
+
+                   <a @click="ativaClase = !ativaClase" class="btn btn-primary" href="#">change Color</a>
+
+              </div>
+          </div>
+      </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script>
+        // Criando uma instancia de vueJS
+        var app = new Vue ({
+            el : "#app",
+            data:{
+              // style building
+              myColor: 'red',              
+              dataColor:{
+                  color: 'blue'                  
+              },
+              dataColor1:{
+                  color: 'blue',
+                  backgroundColor: 'yellow'
+              },
+              dataColor2:{
+                  margin: '10px',
+                  padding: '20px'
+              },
+
+             // Class building
+              ativaClase: true
+            },
+            methods:{
+              
+            }            
+        })
+    </script>
+  </body>
+</html>
