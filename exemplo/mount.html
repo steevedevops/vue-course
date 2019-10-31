@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Instrodução a vuejs</title>
+  </head>
+    <style>
+        .myContainer{
+            text-align: center; 
+            margin-top: 15px;
+            padding: 15px;
+            border: solid 1px black;
+            border-radius: 10px;
+        }
+    </style>
+  <body>
+      <button onclick="carregarVue()" >Carregar vue</button>
+      <div id="app" class="container myContainer">    
+          
+        
+
+          <!-- Html de aqui vao ser html normal -->
+          <!-- <h2>{{title}}</h2>                     -->
+      </div>
+
+    <!-- Optional JavaScript -->    
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>    
+    <script>
+        // Sempre quando e trabalhado com mount ele precisa de un template
+        function carregarVue(){
+            app.$mount('#app')
+        }
+        // Criando uma instancia de vueJS
+        var app = new Vue ({  
+            // template: `<div>{{title}}</div>`,         
+            template: `<div class="container myContainer">{{title}}</div>`,         
+            data:{
+                title: "Bienvenido al oficina de VueJS!",                
+            }
+        })
+    </script>
+  </body>
+</html>
