@@ -36,8 +36,17 @@
             <!-- Componente basico en vueJS -->
             <perfil></perfil>
 
-            <!--  Pasando parametro em un componete -->
-            <componente2></componente2>
+            <!--  Pasando parametro em un componentes -->
+            <componente2 param="hola filho"></componente2>
+
+            <!-- Componente com valor por obligação -->
+            <componente3 param2="valor requerido"></componente3>
+
+            <!-- componete enviando para pai emitindo sinal de click -->
+            <p>{{euPai}}</p>
+            <enviandopai @sinalele="trocaNomePai"></enviandopai>
+
+            
       </div>
 
     <!-- Optional JavaScript -->
@@ -48,18 +57,7 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
     <script>
         // Criando uma instancia de vueJS
-        Vue.component('perfil',{            
-            // Prop basico
-            // props: [pai],
-
-            //  Props Avanzado
-            // props:{
-            //     pai:{
-            //         type: String,
-            //         required: true,
-            //         default: 'hola'                    
-            //     }
-            // },
+        Vue.component('perfil',{
             template: `
                 <div>
                     <p> hola mundo em componente sem parametro</p>
@@ -75,9 +73,12 @@
 
         // Componente com parametro que vem do pai
         Vue.component('componente2',{
+            props:{
+                param:{}
+            },    
             template: `
                 <div>
-                    <p>Recibiendo parametro do pai do componente</p>
+                    <p>Recibiendo parametro do pai do componente {{param}}</p>
                 </div>
             `,
             data(){
@@ -88,8 +89,60 @@
         })
 
 
+
+        Vue.component('componente3',{
+            props:{
+                param2:{
+                    type: String,
+                    default: 'default',
+                    required: true
+                }
+            },
+            template: `
+                <div>
+                    <h1>Mensagem com valor padrao do componente "{{param2}}"</h1>
+                </div>
+            `,
+            data(){
+                return{
+
+                }
+            }
+        })
+
+
+        Vue.component('enviandopai',{
+            template: `
+                <div>
+                    <h5>Componente enviando para o pai</h5>
+                    <button @click="trocaMensagem" class="btn btn-primary">Envia pai</button>
+                </div>
+            
+            `,
+            data(){
+                return{
+
+                }
+            },
+            methods:{
+                trocaMensagem(){
+                    // o sinal seria a acao de click
+                    this.$emit('sinalele', ' Com parametros de funcionalidade');
+                }
+            }
+        })
+
+        
         var app = new Vue ({
-            el : "#app"
+            el : "#app",
+            data:{
+                euPai : "Valor que eu tenho"
+            },
+            methods:{
+                trocaNomePai(param){
+                    this.euPai = "Funcioando mensagem trocado"+param;
+                }
+            }        
                       
         })
     </script>
